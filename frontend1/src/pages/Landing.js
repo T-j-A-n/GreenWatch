@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import RegisterForm from './LandingForm';
+import RegisterForm from './LoginForm';
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
@@ -17,17 +17,17 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/loggedin', form);
+      await axios.post('http://localhost:5000/register', form);
       navigate('/loggedin'); 
     } catch (err) {
-      alert('Error logging in account');
+      alert('Error creating account');
     }
   };
 
 
   return (
     <div style={{ maxWidth: '400px', margin: '50px auto' }}>
-      <h2>Login to your Account</h2>
+      <h2>Login Into your Account</h2>
       <RegisterForm
         username={form.username}
         password={form.password}
@@ -38,4 +38,4 @@ function Register() {
   );
 }
 
-export default Landing;
+export default Login;
