@@ -12,5 +12,14 @@ const userComplaintSchema = new mongoose.Schema({
   //priority: { type: Number, required: true },
 });
 
+
+const userSchema = new mongoose.Schema({
+  username: String,
+  password: String,
+});
+
+module.exports = mongoose.model('UserN', userSchema);
+
+
 const User = mongoose.model('User', userComplaintSchema);
 module.exports = User;
