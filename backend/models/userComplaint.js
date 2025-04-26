@@ -1,5 +1,25 @@
 const mongoose = require('mongoose');
+const userAuthentication = new mongoose.Schema({
+    UserName:{
+        type: String,
+        required: true,
+    },
+    Password: {
+        type: String,
+        required: true
+    }
 
+})
+const userSchema = new mongoose.Schema({
+    UserName:{
+        type: String,
+        required: true,
+    },
+    ListOfComplains:{
+        type:[Number],
+        default: 0
+    }
+})
 const userComplaintSchema = new mongoose.Schema({
   //id: {type: Number, required: true},
   userName: { type: String, required: true },
@@ -12,4 +32,7 @@ const userComplaintSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userComplaintSchema);
-module.exports = User;
+const Complaint = mongoose.model('userComplaintSchema', userComplaintSchema)
+const Auth = mongoose.model('userAuthentication', userAuthentication)
+
+module.exports = {User, Complaint, Auth};
