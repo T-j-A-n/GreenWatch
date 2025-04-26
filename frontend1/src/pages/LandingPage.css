@@ -1,0 +1,61 @@
+#land.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #e0f7e9, #b3e5c0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+  }
+  
+  #land h1 {
+    font-size: 3rem;
+    color: #2e7d32;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.3rem;
+    color: #4caf50;
+    margin-bottom: 2rem;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .btn {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn:hover {
+    background-color: #1b5e20;
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 600px) {
+    #land h1 {
+      font-size: 2.2rem;
+    }
+  
+    .subtitle {
+      font-size: 1.1rem;
+    }
+  
+    .btn {
+      width: 100%;
+      padding: 12px;
+    }
+  }
+  
