@@ -1,75 +1,63 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+
 const app = express();
-const Joi = require('joi');
-app.use(express.json());
-app.use(cors());
-
-
-const MONGO_URL = 'mongodb://127.0.0.1:27017/complaintSystem';
 const PORT = 8000;
 
+// Replace this with your actual MongoDB URI
+const MONGO_URI = 'mongodb://127.0.0.1:27017/complaintSystem';
 
-mongoose.connect(MONGO_URL)
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.error(err));
+mongoose.connect(MONGO_URI)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
-const userComplaintSchema = new mongoose.Schema({
-  //id: { type: Number, required: true },
-  userName: { type: String, required: true },
-  title: { type: String, required: true },
-  description: { type: String, required: false },
-  category: { type: String, required: true },
-  image: { type: String, required: false },
-  location: { type: String, required: true },
-  //priority: { type: Number, required: true },
+app.use(cors());
+app.use(express.json());
+
+// Schema & model
+const complaintSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  category: String,
+  status: String,
+  image: String,
+  location: String,
+  upvotes: { type: Number, default: 0 }
 });
 
-const UserComplaint = mongoose.model('UserComplaint', userComplaintSchema);
+const Complaint = mongoose.model('Complaint', complaintSchema);
 
-
+// Routes
 app.post('/complaints', async (req, res) => {
-  /*try {
-    const complaint = new UserComplaint(req.body);
+  try {
+    const complaint = new Complaint(req.body);
     await complaint.save();
-    res.status(201).send(complaint);
-  } catch (error) {
-    res.status(400).send(error); 
-  }*/
-  const { error } = validateStudent(req.body);
-  if (error) return res.status(400).send('Incorrect Format');
-  const complaint = new UserComplaint(req.body);
-  await complaint.save();
-  res.status(201).send(complaint);
+    res.status(201).json(complaint);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 });
 
 app.get('/complaints', async (req, res) => {
+  const complaints = await Complaint.find().sort({ upvotes: -1 });
+  res.json(complaints);
+});
+
+app.post('/complaints/:id/upvote', async (req, res) => {
   try {
-    const complaints = await UserComplaint.find();
-    res.status(200).send(complaints);
-  } catch (error) {
-    res.status(400).send(error);
+    const complaint = await Complaint.findById(req.params.id);
+    complaint.upvotes += 1;
+    await complaint.save();
+    res.json(complaint);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 });
-app.delete('/complaints/:id', (req,res) =>{
-
-});
-
-function validateStudent(student) {
-    const schema = Joi.object({
-      userName: Joi.string().required(),
-      title: Joi.string().required(),
-      description: Joi.string().required(),
-      category: Joi.string().required(),
-      image: Joi.string(),
-      location: Joi.string().required(),
-    });
-    return schema.validate(student);
-}
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT} `);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
+
 
 
