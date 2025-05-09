@@ -52,7 +52,7 @@ greenwatch/
 │   ├── pages/               # Pages (Home, Submit, View)
 │   └── App.js               # Main App component
 ├── .env                     # Environment variables
-└── README.md
+└── README.md```
 
 ##⚙️ Setup Instructions
 Clone the Repository
