@@ -1,45 +1,47 @@
-<h1>🌿 GreenWatch</h1>\n
-GreenWatch is a Reddit-like full-stack web application built with the MERN stack (MongoDB, Express.js, React, Node.js). It enables users to report, upvote, downvote, and resolve environmental grievances in their local communities — promoting accountability and sustainability.
+# 🌿 GreenWatch
 
-🌟 Features
-📝 Report Environmental Complaints
-Users can file grievances related to pollution, waste dumping, deforestation, and other environmental concerns.
+**GreenWatch** is a Reddit-like full-stack web application built with the **MERN stack** (MongoDB, Express.js, React, Node.js). It enables users to **report, upvote, downvote, and resolve environmental grievances** in their local communities — promoting accountability and sustainability.
 
-👍 Upvote & Downvote System
-A community-driven voting mechanism to prioritize pressing issues.
+---
 
-✅ Mark Complaints as Resolved
-Complaints can be marked resolved by users or authorities once addressed.
+## 🌟 Features
 
-📄 View & Sort Complaints
-Complaints are displayed in order of popularity (upvotes), recency, or resolution status.
+- 📝 **Report Environmental Complaints**  
+  Users can file grievances related to pollution, waste dumping, deforestation, and other environmental concerns.
 
-💻 Responsive UI
-A clean, modern React frontend for a seamless experience across devices.
+- 👍 **Upvote & Downvote System**  
+  A community-driven voting mechanism to prioritize pressing issues.
 
-🛠️ Tech Stack
-Frontend:
+- ✅ **Mark Complaints as Resolved**  
+  Complaints can be marked resolved by users or authorities once addressed.
 
-React
+- 📄 **View & Sort Complaints**  
+  Complaints are displayed in order of popularity (upvotes), recency, or resolution status.
 
-CSS (or styling framework of your choice)
+- 💻 **Responsive UI**  
+  A clean, modern React frontend for a seamless experience across devices.
 
-Fast API
+---
 
-Backend:
+## 🛠️ Tech Stack
 
-Node.js
+**Frontend**:
+- React
+- CSS (vanilla or with modules/frameworks)
+- Fetch API or Axios
 
-Express.js
+**Backend**:
+- Node.js
+- Express.js
 
-Database:
+**Database**:
+- MongoDB with Mongoose
 
-MongoDB with Mongoose
+---
 
-📁 Folder Structure
-bash
-Copy
-Edit
+## 📁 Folder Structure
+
+```bash
 greenwatch/
 ├── backend/                 # Express backend
 │   ├── models/              # Mongoose schemas
