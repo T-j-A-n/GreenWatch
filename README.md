@@ -28,7 +28,7 @@
 **Frontend**:
 - React
 - CSS (vanilla or with modules/frameworks)
-- Fetch API or Axios
+- Fetch API
 
 **Backend**:
 - Node.js
