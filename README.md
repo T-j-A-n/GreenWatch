@@ -1,4 +1,4 @@
-🌿 GreenWatch
+<h1>🌿 GreenWatch</h1>\n
 GreenWatch is a Reddit-like full-stack web application built with the MERN stack (MongoDB, Express.js, React, Node.js). It enables users to report, upvote, downvote, and resolve environmental grievances in their local communities — promoting accountability and sustainability.
 
 🌟 Features
