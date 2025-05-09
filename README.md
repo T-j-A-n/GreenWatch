@@ -52,52 +52,48 @@ greenwatch/
 │   ├── pages/               # Pages (Home, Submit, View)
 │   └── App.js               # Main App component
 ├── .env                     # Environment variables
-└── README.md```
+└── README.md
 
-##⚙️ Setup Instructions
+```
+
+## ⚙️ Setup Instructions
 Clone the Repository
 
-bash
-Copy
-Edit
+```bash
 git clone https://github.com/T-j-A-n/complaintSystem.git
 cd complaintSystem
 Install Backend Dependencies
 
-bash
-Copy
-Edit
+```
+
+```bash
 cd backend
 npm install
 Install Frontend Dependencies
+```
 
-bash
-Copy
-Edit
+```bash
 cd ../frontend
 npm install
 Set Up Environment Variables
 
+
 Create a .env file inside the backend/ folder:
 
 ini
-Copy
-Edit
 MONGO_URI=your_mongodb_connection_string
 PORT=5000
 Run the Application
-
+```
 Backend:
 
-bash
-Copy
-Edit
+```bash
 cd backend
 npm start
+```
 Frontend (in a new terminal):
 
-bash
-Copy
-Edit
+```bash
 cd frontend
 npm start
+```
